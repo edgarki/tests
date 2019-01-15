@@ -12,7 +12,7 @@
 //3
 
 //example of this output
-/Depositing $59
+//Depositing $59
 //Withdrawing $2
 //Depositing $62
 //Depositing $16
@@ -36,13 +36,11 @@ class Account {
     int balance = 0;
 
     String deposit(int money) {
-        // System.out.println(getBalance());
         balance += money;
         return "Depositing $" + money;
     }
 
     String withdraw(int money) {
-        // System.out.println(getBalance());
         if (getBalance() >= money) {
             balance -= money;
             return "Withdrawing $" + money;
@@ -60,16 +58,7 @@ class Transaction {
     private List<String> t = new ArrayList<String>();
     private Account acc = new Account();
 
-    Transaction(Account a) {
-        t = new ArrayList<String>();
-        acc = a;
-    }
-
     synchronized void deposit(int money) {
-
-        // String o = acc.deposit(money);
-        // System.out.println(o);
-        // recordTransaction(o);
         try {
             recordTransaction(acc.deposit(money));
         } catch (Exception e) {
